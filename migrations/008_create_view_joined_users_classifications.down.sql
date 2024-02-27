@@ -1,0 +1,1 @@
+DROP VIEW joined_users_classifications;

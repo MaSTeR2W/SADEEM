@@ -1,0 +1,1 @@
+CREATE INDEX user_id_user_classifications ON user_classifications(user_id);

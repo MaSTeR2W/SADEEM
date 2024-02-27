@@ -1,0 +1,1 @@
+DROP INDEX class_id_user_classifications;
