@@ -6,7 +6,7 @@ import (
 	_ "github.com/golang-migrate/migrate/v4/source/file"
 )
 
-func MigrateUp(migrationsAbsPath string) error {
+func MigrateUp(migrationsAbsPath string, version uint) error {
 	driver, err := pgx.WithInstance(DB.DB, &pgx.Config{})
 
 	if err != nil {
@@ -19,13 +19,12 @@ func MigrateUp(migrationsAbsPath string) error {
 	}
 
 	curVer, _, err := m.Version()
-
-	if err != nil {
+	if err != nil && err != migrate.ErrNilVersion {
 		return err
 	}
 
-	if curVer < 2 {
-		err = m.Up()
+	if curVer < version {
+		err = m.Migrate(version)
 		if err != nil {
 			return err
 		}
