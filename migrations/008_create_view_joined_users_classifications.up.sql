@@ -1,6 +1,10 @@
 CREATE VIEW joined_users_classifications AS
     SELECT 
-        u.*,
+        u.user_id,
+        u.name,
+        u.email,
+        u.image,
+        u.user_type,
         ARRAY_AGG(
             JSON_BUILD_OBJECT(
                 'classId',
