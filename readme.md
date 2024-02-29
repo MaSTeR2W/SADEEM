@@ -4,12 +4,15 @@
 ## PREREQUISITES
 
 1- Golang version 1.21.5
+
 2- Postgres version 16.1
 
 ## HOW TO RUN
 
 1- Go to .env file.
+
 2- Change connection options with yours.
+
 3- Then enter the following in console.
 
 ```bash
