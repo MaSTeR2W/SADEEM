@@ -9,15 +9,29 @@ import (
 
 func GetMany(c echo.Context) error {
 	var sql = "SELECT * FROM classifications"
+	var sqlCount = "SELECT COUNT(*) AS count FROM classifications"
 
 	if c.Get("authData").(*security.AuthData).UserType != "manager" {
 		sql += " WHERE enabled=TRUE"
+		sqlCount += " WHERE enabled=TRUE"
 	}
+
 	var classes, err = pgHprs.QueryxAndStructMultiScan[classification.Classification](sql)
 
 	if err != nil {
 		return err
 	}
 
-	return c.JSON(200, classes)
+	var count int
+
+	err = pgHprs.QueryxAndScan(sqlCount, []any{}, &count)
+
+	if err != nil {
+		return err
+	}
+
+	return c.JSON(200, map[string]any{
+		"count": count,
+		"data":  classes,
+	})
 }
