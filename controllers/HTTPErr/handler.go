@@ -33,7 +33,14 @@ func Handler(err error, c echo.Context) {
 	case *errors.HTTP403Err:
 		c.JSON(403, e)
 	default:
+		if eErr, ok := e.(*echo.HTTPError); ok {
+			if eErr.Code == 404 {
+				notFound(c)
+				return
+			}
+		}
 		unhandlerErr(c)
+
 	}
 }
 
@@ -42,5 +49,18 @@ func unhandlerErr(c echo.Context) {
 		c.JSONBlob(500, message500Ar)
 	} else {
 		c.JSONBlob(500, message500En)
+	}
+}
+
+var notFoundAr = []byte(`{"message":"هذا المسار غير متاح حالياً"}`)
+var notFoundEn = []byte(`{"message":"This path is currently unavailable"}`)
+
+func notFound(c echo.Context) {
+	if c.QueryParam("lang") == "ar" {
+		c.JSONBlob(404, notFoundAr)
+
+	} else {
+		c.JSONBlob(404, notFoundEn)
+
 	}
 }
