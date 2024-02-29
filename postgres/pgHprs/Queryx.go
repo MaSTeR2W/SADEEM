@@ -6,8 +6,8 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
-func Queryx(query string) error {
-	rows, err := postgres.DB.Queryx(query)
+func Queryx(query string, args ...any) error {
+	rows, err := postgres.DB.Queryx(query, args...)
 
 	if err != nil {
 		return err

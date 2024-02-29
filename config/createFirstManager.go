@@ -31,11 +31,11 @@ func CreateFirstManager() {
 		panic(err)
 	}
 
-	err = pgHprs.StmtQueryx(
-		user.Create,
+	err = pgHprs.Queryx(
+		"INSERT INTO users (name, email,	image,password, salt, user_type) VALUES ($1, $2, $3, $4, $5, $6)",
 		"sadeem",
 		"sadeem@sadeem.ly",
-		"20240229_221829_0dd2394ea28f.png",
+		"/imgs/20240229_221829_0dd2394ea28f.png",
 		password,
 		salt,
 		"manager",

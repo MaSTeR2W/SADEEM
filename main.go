@@ -1,6 +1,8 @@
 package main
 
 import (
+	_ "github.com/MaSTeR2W/SADEEM/config"
+
 	"github.com/MaSTeR2W/SADEEM/controllers/HTTPErr"
 	"github.com/MaSTeR2W/SADEEM/helpers/absPath"
 	"github.com/MaSTeR2W/SADEEM/postgres"
