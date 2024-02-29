@@ -17,8 +17,8 @@ CREATE VIEW joined_users_classifications AS
                )
             ) FILTER (WHERE c.class_id IS NOT NULL),
             '[]'::JSON
-        ) AS classification
+        ) AS classifications
     FROM users AS u
     LEFT JOIN user_classifications AS uc ON u.user_id=uc.user_id
-    LEFT JOIN classification AS c ON c.class_id=uc.class_id
+    LEFT JOIN classifications AS c ON c.class_id=uc.class_id
     GROUP BY u.user_id;
