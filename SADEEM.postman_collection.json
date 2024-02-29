@@ -1,0 +1,476 @@
+{
+   "info": {
+      "_postman_id": "cb7a94c1-5b07-4d24-9a26-1c5602db6c84",
+      "name": "SADEEM",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+   },
+   "item": [
+      {
+         "name": "user",
+         "item": [
+            {
+               "name": "classifications",
+               "item": [
+                  {
+                     "name": "ADD",
+                     "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                           "raw": "{{urlApi}}/users/1/classifications/7",
+                           "host": [
+                              "{{urlApi}}"
+                           ],
+                           "path": [
+                              "users",
+                              "1",
+                              "classifications",
+                              "7"
+                           ]
+                        }
+                     },
+                     "response": []
+                  },
+                  {
+                     "name": "DELETE",
+                     "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                           "raw": "{{urlApi}}/users/1/classifications/",
+                           "host": [
+                              "{{urlApi}}"
+                           ],
+                           "path": [
+                              "users",
+                              "1",
+                              "classifications",
+                              ""
+                           ]
+                        }
+                     },
+                     "response": []
+                  }
+               ]
+            },
+            {
+               "name": "CREATE",
+               "request": {
+                  "method": "POST",
+                  "header": [
+                     {
+                        "key": "Authorization",
+                        "value": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTE4Mjk4ODYsInVzZXJJZCI6NX0.Pbs9ZIOfRflWeik9UQtRr-FMHR4gYjJ6f9t9SfQuBbkWeaWwmLW_TVHwfnDN9t2lJhOBS-JTCYuRQ_qocsfIJw",
+                        "type": "text"
+                     }
+                  ],
+                  "body": {
+                     "mode": "formdata",
+                     "formdata": [
+                        {
+                           "key": "name",
+                           "value": "marwan",
+                           "type": "text"
+                        },
+                        {
+                           "key": "email",
+                           "value": "amsmdm1@gmail.com",
+                           "type": "text"
+                        },
+                        {
+                           "key": "image",
+                           "type": "file",
+                           "src": "/Z:/MARWAN/vs code/2023/11/tecSpace/dist/assets/booking firstStep-fdf008f5.png"
+                        },
+                        {
+                           "key": "userType",
+                           "value": "manager",
+                           "type": "text"
+                        },
+                        {
+                           "key": "password",
+                           "value": "12345678",
+                           "type": "text"
+                        }
+                     ],
+                     "options": {
+                        "raw": {
+                           "language": "json"
+                        }
+                     }
+                  },
+                  "url": {
+                     "raw": "{{urlApi}}/users",
+                     "host": [
+                        "{{urlApi}}"
+                     ],
+                     "path": [
+                        "users"
+                     ]
+                  }
+               },
+               "response": []
+            },
+            {
+               "name": "GET ONE",
+               "request": {
+                  "method": "GET",
+                  "header": [],
+                  "url": {
+                     "raw": "{{urlApi}}/users/1",
+                     "host": [
+                        "{{urlApi}}"
+                     ],
+                     "path": [
+                        "users",
+                        "1"
+                     ]
+                  }
+               },
+               "response": []
+            },
+            {
+               "name": "UPDATE",
+               "request": {
+                  "method": "PATCH",
+                  "header": [],
+                  "body": {
+                     "mode": "formdata",
+                     "formdata": [
+                        {
+                           "key": "name",
+                           "value": "asdaas",
+                           "type": "text",
+                           "disabled": true
+                        },
+                        {
+                           "key": "email",
+                           "value": "marwan@ga.com",
+                           "type": "text",
+                           "disabled": true
+                        },
+                        {
+                           "key": "asda",
+                           "value": "asds",
+                           "type": "text",
+                           "disabled": true
+                        },
+                        {
+                           "key": "userType",
+                           "value": "manager",
+                           "type": "text",
+                           "disabled": true
+                        },
+                        {
+                           "key": "image",
+                           "type": "file",
+                           "src": "/Z:/MARWAN/vs code/2023/11/tecSpace/dist/assets/booking firstStep-fdf008f5.png",
+                           "disabled": true
+                        },
+                        {
+                           "key": "password",
+                           "value": "154asdcs",
+                           "type": "text"
+                        }
+                     ],
+                     "options": {
+                        "raw": {
+                           "language": "json"
+                        }
+                     }
+                  },
+                  "url": {
+                     "raw": "{{urlApi}}/users/1?lang=ar",
+                     "host": [
+                        "{{urlApi}}"
+                     ],
+                     "path": [
+                        "users",
+                        "1"
+                     ],
+                     "query": [
+                        {
+                           "key": "lang",
+                           "value": "ar"
+                        }
+                     ]
+                  }
+               },
+               "response": []
+            },
+            {
+               "name": "GET MANY",
+               "request": {
+                  "method": "GET",
+                  "header": [
+                     {
+                        "key": "Authorization",
+                        "value": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTE4Mjk4ODYsInVzZXJJZCI6NX0.Pbs9ZIOfRflWeik9UQtRr-FMHR4gYjJ6f9t9SfQuBbkWeaWwmLW_TVHwfnDN9t2lJhOBS-JTCYuRQ_qocsfIJw",
+                        "type": "text"
+                     }
+                  ],
+                  "url": {
+                     "raw": "{{urlApi}}/users",
+                     "host": [
+                        "{{urlApi}}"
+                     ],
+                     "path": [
+                        "users"
+                     ]
+                  }
+               },
+               "response": []
+            },
+            {
+               "name": "DELETE",
+               "request": {
+                  "method": "DELETE",
+                  "header": [],
+                  "url": {
+                     "raw": "{{urlApi}}/users/2",
+                     "host": [
+                        "{{urlApi}}"
+                     ],
+                     "path": [
+                        "users",
+                        "2"
+                     ]
+                  }
+               },
+               "response": []
+            },
+            {
+               "name": "GET ME",
+               "request": {
+                  "method": "GET",
+                  "header": [],
+                  "url": {
+                     "raw": "{{urlApi}}/users/me",
+                     "host": [
+                        "{{urlApi}}"
+                     ],
+                     "path": [
+                        "users",
+                        "me"
+                     ]
+                  }
+               },
+               "response": []
+            }
+         ]
+      },
+      {
+         "name": "classifications",
+         "item": [
+            {
+               "name": "CREATE",
+               "request": {
+                  "method": "POST",
+                  "header": [],
+                  "body": {
+                     "mode": "raw",
+                     "raw": "{\r\n    \"name\":\"nope\",\r\n    \"enabled\":false\r\n}",
+                     "options": {
+                        "raw": {
+                           "language": "json"
+                        }
+                     }
+                  },
+                  "url": {
+                     "raw": "{{urlApi}}/classifications?lang=ar",
+                     "host": [
+                        "{{urlApi}}"
+                     ],
+                     "path": [
+                        "classifications"
+                     ],
+                     "query": [
+                        {
+                           "key": "lang",
+                           "value": "ar"
+                        }
+                     ]
+                  }
+               },
+               "response": []
+            },
+            {
+               "name": "UPDATE",
+               "request": {
+                  "method": "PATCH",
+                  "header": [
+                     {
+                        "key": "Authorization",
+                        "value": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTE4Mjk4ODYsInVzZXJJZCI6NX0.Pbs9ZIOfRflWeik9UQtRr-FMHR4gYjJ6f9t9SfQuBbkWeaWwmLW_TVHwfnDN9t2lJhOBS-JTCYuRQ_qocsfIJw",
+                        "type": "text"
+                     }
+                  ],
+                  "body": {
+                     "mode": "raw",
+                     "raw": "{\r\n    \"name\":\"asd\",\r\n    \"enabled\":true\r\n}",
+                     "options": {
+                        "raw": {
+                           "language": "json"
+                        }
+                     }
+                  },
+                  "url": {
+                     "raw": "{{urlApi}}/classifications/1",
+                     "host": [
+                        "{{urlApi}}"
+                     ],
+                     "path": [
+                        "classifications",
+                        "1"
+                     ]
+                  }
+               },
+               "response": []
+            },
+            {
+               "name": "GET ONE",
+               "request": {
+                  "method": "GET",
+                  "header": [
+                     {
+                        "key": "Authorization",
+                        "value": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTE4MjgwMDksInVzZXJJZCI6M30.vnX4ghDW9ObqZDfdj-pstRFoYOWShQ1eFcR60KIPE1pBEPW6wOMI_2o9VGiSTG1ZEXFPs-aCQuxzjoj_a6nPbw",
+                        "type": "text"
+                     }
+                  ],
+                  "url": {
+                     "raw": "{{urlApi}}/classifications/5",
+                     "host": [
+                        "{{urlApi}}"
+                     ],
+                     "path": [
+                        "classifications",
+                        "5"
+                     ]
+                  }
+               },
+               "response": []
+            },
+            {
+               "name": "GET MANY",
+               "request": {
+                  "method": "GET",
+                  "header": [
+                     {
+                        "key": "Authorization",
+                        "value": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTE4Mjk4ODYsInVzZXJJZCI6NX0.Pbs9ZIOfRflWeik9UQtRr-FMHR4gYjJ6f9t9SfQuBbkWeaWwmLW_TVHwfnDN9t2lJhOBS-JTCYuRQ_qocsfIJw",
+                        "type": "text"
+                     }
+                  ],
+                  "url": {
+                     "raw": "{{urlApi}}/classifications",
+                     "host": [
+                        "{{urlApi}}"
+                     ],
+                     "path": [
+                        "classifications"
+                     ]
+                  }
+               },
+               "response": []
+            },
+            {
+               "name": "DELETE",
+               "request": {
+                  "method": "DELETE",
+                  "header": [],
+                  "url": {
+                     "raw": "{{urlApi}}/classifications/3",
+                     "host": [
+                        "{{urlApi}}"
+                     ],
+                     "path": [
+                        "classifications",
+                        "3"
+                     ]
+                  }
+               },
+               "response": []
+            }
+         ]
+      },
+      {
+         "name": "registration",
+         "item": [
+            {
+               "name": "LOGIN",
+               "request": {
+                  "method": "POST",
+                  "header": [],
+                  "body": {
+                     "mode": "raw",
+                     "raw": "{\r\n    \"email\":\"sadeem@sadeem.ly\",\r\n    \"password\":\"12345678\"\r\n}",
+                     "options": {
+                        "raw": {
+                           "language": "json"
+                        }
+                     }
+                  },
+                  "url": {
+                     "raw": "{{urlApi}}/registration/login?lang=ar",
+                     "host": [
+                        "{{urlApi}}"
+                     ],
+                     "path": [
+                        "registration",
+                        "login"
+                     ],
+                     "query": [
+                        {
+                           "key": "lang",
+                           "value": "ar"
+                        }
+                     ]
+                  }
+               },
+               "response": []
+            }
+         ]
+      }
+   ],
+   "auth": {
+      "type": "bearer",
+      "bearer": [
+         {
+            "key": "token",
+            "value": "",
+            "type": "string"
+         }
+      ]
+   },
+   "event": [
+      {
+         "listen": "prerequest",
+         "script": {
+            "type": "text/javascript",
+            "exec": [
+               ""
+            ]
+         }
+      },
+      {
+         "listen": "test",
+         "script": {
+            "type": "text/javascript",
+            "exec": [
+               ""
+            ]
+         }
+      }
+   ],
+   "variable": [
+      {
+         "key": "url",
+         "value": "localhost:1323"
+      },
+      {
+         "key": "urlApi",
+         "value": "localhost:1323/api/v1"
+      }
+   ]
+}
