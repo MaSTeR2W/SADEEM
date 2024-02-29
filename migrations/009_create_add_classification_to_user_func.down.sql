@@ -1,0 +1,1 @@
+DROP FUNCTION add_class_to_user(_user_id INT, _class_id INT);

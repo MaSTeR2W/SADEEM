@@ -1,1 +1,1 @@
-DROP TABLE classifications;
+DROP TABLE classification;

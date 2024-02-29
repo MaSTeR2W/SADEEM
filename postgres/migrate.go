@@ -6,11 +6,13 @@ import (
 	_ "github.com/golang-migrate/migrate/v4/source/file"
 )
 
-func MigrateUp(migrationsAbsPath string, version uint) error {
+var Migrated = make(chan bool, 1)
+
+func Migrate(migrationsAbsPath string, version uint) {
 	driver, err := pgx.WithInstance(DB.DB, &pgx.Config{})
 
 	if err != nil {
-		return nil
+		panic(err)
 	}
 
 	m, err := migrate.NewWithDatabaseInstance("file://"+migrationsAbsPath, "postgres", driver)
@@ -20,15 +22,15 @@ func MigrateUp(migrationsAbsPath string, version uint) error {
 
 	curVer, _, err := m.Version()
 	if err != nil && err != migrate.ErrNilVersion {
-		return err
+		panic(err)
 	}
 
-	if curVer < version {
+	if curVer != version {
 		err = m.Migrate(version)
 		if err != nil {
-			return err
+			panic(err)
 		}
 	}
-
-	return nil
+	Migrated <- true
+	close(Migrated)
 }

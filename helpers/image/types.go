@@ -1,13 +1,12 @@
 package image
 
 type UnsupportedType struct {
-	Field     string `json:"field"`
-	MessageAr string `json:"messageAr"`
-	MessageEn string `jsin:"messageEn"`
+	Field   string `json:"field"`
+	Message string `json:"message"`
 }
 
 func (u *UnsupportedType) String() string {
-	return "{\n\t\"field\": \"" + u.Field + "\",\n\t\"messageAr\": \"" + u.MessageAr + "\"\n\t\"messageEn\": \"" + u.MessageEn + "\"\n}"
+	return "{\n\t\"field\": \"" + u.Field + "\"\n\t\"messageEn\": \"" + u.Message + "\"\n}"
 }
 
 func (u *UnsupportedType) Error() string {

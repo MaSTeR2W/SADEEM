@@ -35,3 +35,12 @@ func BuildSqlUpdate(sql string, vals map[string]any) string {
 	}
 	return sql
 }
+
+func SetBindVars(keys ...string) string {
+	var str = ""
+	for i, key := range keys {
+		str += "," + key + "=$" + strconv.FormatInt(int64(i+1), 10)
+	}
+
+	return str[1:]
+}

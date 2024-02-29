@@ -81,3 +81,25 @@ func StmtQueyxAndMyMapScan(stmt *sqlx.Stmt, m map[string]any, args ...any) error
 
 	return rows.Err()
 }
+
+func TxQueryxAndMapScan(tx *sqlx.Tx, sql string, args ...any) (map[string]any, error) {
+
+	rows, err := tx.Queryx(sql, args...)
+	if err != nil {
+		return nil, err
+	}
+
+	var t = map[string]any{}
+
+	for rows.Next() {
+		if err := rows.MapScan(t); err != nil {
+			return nil, err
+		}
+	}
+
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return t, nil
+}

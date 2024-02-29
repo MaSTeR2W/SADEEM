@@ -1,6 +1,10 @@
 package hprFns
 
-import "strconv"
+import (
+	"crypto/rand"
+	"encoding/hex"
+	"strconv"
+)
 
 func Join[T uint | int](s []T, sep string) string {
 	var str = ""
@@ -47,4 +51,14 @@ func JoinPs[T uint | int](s []T, prefix, suffix, sep string) string {
 		}
 	}
 	return str
+}
+
+func RdmHexStr(l uint) (string, error) {
+	var bytes = make([]byte, l/2)
+	var _, err = rand.Read(bytes)
+
+	if err != nil {
+		return "", err
+	}
+	return hex.EncodeToString(bytes), nil
 }

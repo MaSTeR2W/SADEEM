@@ -1,6 +1,6 @@
 package validators
 
-type validator interface {
-	Validate(any, string) error
+type Validator interface {
+	Validate(v any, lang string) error
 	GetField() string
 }
